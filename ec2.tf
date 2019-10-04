@@ -2,6 +2,14 @@ provider "aws"{
     region = "us-east-1"
 }
 
+variable "http_port" {
+
+    description = "and exaple of a number veriable in terraform"
+    type = number
+    default = 8080
+  
+}
+
 resource "aws_instance" "webserver" {
 
     ami = "ami-0b69ea66ff7391e80"
@@ -26,8 +34,8 @@ resource "aws_instance" "webserver" {
 resource "aws_security_group" "Web_Security_Group" {
     name = "Web_Security_Group"
     ingress {
-        from_port = 8080
-        to_port = 8080 
+        from_port = var.http_port
+        to_port = var.http_port
         protocol ="tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
