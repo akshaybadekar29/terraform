@@ -2,7 +2,7 @@ provider "aws"{
     region = "us-east-1"
 }
 
-data "template_file" "user_data" {
+data "template_file" "userdata" {
   template = "${file("templates/user_data.tpl")}"
 }
 
