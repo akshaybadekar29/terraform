@@ -18,3 +18,15 @@ resource "aws_instance" "webserver" {
     }
 
 }
+
+
+resource "aws_security_group" "Web_Security_Group" {
+    name = "Web_Security_Group"
+    ingress {
+        from_port = 8080
+        to_port = 8080 
+        protocol ="tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+  
+}
