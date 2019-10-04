@@ -8,7 +8,7 @@ resource "aws_instance" "webserver" {
     instance_type ="t2.micro"
     vpc_security_group_ids =  [ aws_security_group.Web_Security_Group.id ]
     user_data = <<-EOF
-                #!/bin/bash
+                #!/usr/bin/bash
                 echo "hello world"
                 yum update -y
                 yum install -y httpd
