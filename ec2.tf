@@ -21,6 +21,8 @@ resource "aws_instance" "webserver" {
 }
 
 
+
+
 resource "aws_security_group" "Web_Security_Group" {
     name = "Web_Security_Group"
     ingress {
