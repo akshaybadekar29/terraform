@@ -10,7 +10,7 @@ variable "http_port" {
 
     description = "and exaple of a number veriable in terraform"
     type = number
-    default = 8080
+    default = 80
   
 }
 
