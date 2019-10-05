@@ -173,14 +173,14 @@ resource "aws_lb_listener_rule" "lb_rule" {
     listener_arn = aws_lb_listener.lb_listner.arn
     priority = 100
     condition {
-        field = "path-patteren"
+        field = "path-pattern"
         values = [ "*" ]
 
     }
   
     action {
-        type = "forword"
-        target_group_arns = aws_lb_target_group.lb_rule.arn
+        type = "forward"
+        target_group_arn = aws_lb_target_group.asg_targetgroup.arn
     }
 
 }
