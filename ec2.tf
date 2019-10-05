@@ -3,7 +3,7 @@ provider "aws"{
 }
 
 data "template_file" "userdata" {
-  template = "${file("templates/userdata.tpl")}"
+  template = "${file("template/userdata.tpl")}"
 }
 
 variable "http_port" {
