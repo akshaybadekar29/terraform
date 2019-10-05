@@ -90,6 +90,7 @@ resource "aws_autoscaling_group" "web_server_autoscalling_group" {
   launch_configuration = aws_launch_configuration.web_server_launch_config.name
   vpc_zone_identifier =  data.aws_subnet_ids.default.ids
   target_group_arns = [aws_lb_target_group.asg_targetgroup.arn]
+  health_check_type = "ELB"
   min_size = var.asg_min_size
   max_size = var.asg_max_size
   tag{
