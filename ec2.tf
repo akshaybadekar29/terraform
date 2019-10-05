@@ -102,3 +102,48 @@ resource "aws_autoscaling_group" "web_server_autoscalling_group" {
   create_before_destroy=true
   }
 }
+
+resource "aws_lb" "web_loadbalancer" {
+
+ name= "web_loadbalancer"
+ load_balancer_type = "application"
+ subnets = data.aws_subnet_ids.default.ids
+ security_groups = [aws_security_group.loadbalancer_secuirtygroup.alb.id]
+
+}
+
+resource "aws_lb_listener" "lb_listner" {
+    load_balancer_arn = aws_lb.web_loadbalancer.arn
+    port = 80
+    http = "http"
+    default_action {
+        type = "fixed-response"
+        fixed_response {
+            content_type = "text/plan"
+            message_type = "404:  page not found"
+            status_code =  404
+        }
+    }
+}
+
+resource "aws_security_group" "loadbalancer_secuirtygroup"{
+
+    #allow inbound http traffic 
+    ingress {
+        from_port = 80
+        to_port = 80 
+        protocol = "tcp"
+        cide_blocks = ["0.0.0.0/0"]
+  
+    }
+    #allow outbound traffic 
+    egress {
+    from_port       = 0
+    to_port         = 0
+    protocol        = "-1"
+    cidr_blocks     = ["0.0.0.0/0"]
+    }
+  
+}
+
+
