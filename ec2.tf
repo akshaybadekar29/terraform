@@ -52,7 +52,7 @@ resource "aws_instance" "webserver" {
     instance_type ="t2.micro"
     vpc_security_group_ids =  [ aws_security_group.Web_Security_Group.id ]
     user_data = "${data.template_file.userdata.rendered}"
-    key_name = ver.keypair
+    key_name = var.keypair
     tags = {
         Name = "webserver"
     }
@@ -80,7 +80,7 @@ resource "aws_security_group" "Web_Security_Group" {
 resource "aws_launch_configuration" "web_server_launch_config" {
    image_id = "ami-0b69ea66ff7391e80"
    instance_type = "t2.micro"
-   key_name = ver.keypair
+   key_name = var.keypair
    security_groups = [ aws_security_group.Web_Security_Group.id ]
    user_data = "${data.template_file.userdata.rendered}"
 }
