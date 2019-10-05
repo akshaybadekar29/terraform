@@ -89,6 +89,7 @@ resource "aws_autoscaling_group" "web_server_autoscalling_group" {
 
   launch_configuration = aws_launch_configuration.web_server_launch_config.name
   vpc_zone_identifier =  data.aws_subnet_ids.default.ids
+  target_group_arns = [aws_lb_target_group.asg_targetgroup.arn]
   min_size = var.asg_min_size
   max_size = var.asg_max_size
   tag{
@@ -145,6 +146,24 @@ resource "aws_security_group" "loadbalancer_secuirtygroup"{
     cidr_blocks     = ["0.0.0.0/0"]
     }
   
+}
+
+
+resource "aws_lb_target_group" "asg_targetgroup" {
+
+    name = "asg-target-group"
+    port = var.http_port
+    protocol = "HTTP"
+    vpc_id = data.aws_vpc.default.id
+    health_check {
+        path        = "/"
+        protocol    = "HTTP"
+        matcher     = "200"
+        intervel    = 15
+        timeout     = 3
+        health_threshold = 2
+        unhealthy_threshold =2
+    }
 }
 
 
