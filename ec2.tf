@@ -160,9 +160,9 @@ resource "aws_lb_target_group" "asg_targetgroup" {
         path        = "/"
         protocol    = "HTTP"
         matcher     = "200"
-        intervel    = 15
+        interval    = 15
         timeout     = 3
-        health_threshold = 2
+        healthy_threshold = 2
         unhealthy_threshold =2
     }
 }
