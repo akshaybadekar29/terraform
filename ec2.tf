@@ -168,3 +168,19 @@ resource "aws_lb_target_group" "asg_targetgroup" {
 }
 
 
+
+resource "aws_lb_listner_rule" "lb_rule" {
+    listener_arn = aws_lb_listener.lb_listner.arn
+    priority = 100
+    condition {
+        filed = "path-patteren"
+        values = [*]
+
+    }
+  
+    action {
+        type = "forword"
+        target_group_arns = aws_lb_target_group.asg_targetgroup.arn
+    }
+
+}
