@@ -173,7 +173,7 @@ resource "aws_lb_listener_rule" "lb_rule" {
     listener_arn = aws_lb_listener.lb_listner.arn
     priority = 100
     condition {
-        filed = "path-patteren"
+        field = "path-patteren"
         values = [ "*" ]
 
     }
