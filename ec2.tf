@@ -120,7 +120,7 @@ resource "aws_lb_listener" "lb_listner" {
         type = "fixed-response"
         fixed_response {
             content_type = "text/plan"
-            message_type = "404:  page not found"
+            message_body = "404:  page not found"
             status_code =  404
         }
     }
