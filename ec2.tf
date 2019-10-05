@@ -115,7 +115,7 @@ resource "aws_lb" "web_loadbalancer" {
 resource "aws_lb_listener" "lb_listner" {
     load_balancer_arn = aws_lb.web_loadbalancer.arn
     port = 80
-    http = "http"
+    protocol = "http"
     default_action {
         type = "fixed-response"
         fixed_response {
