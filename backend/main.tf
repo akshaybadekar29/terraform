@@ -5,7 +5,7 @@ provider "aws"{
 resource "aws_s3_bucket" "terraform_state_bucket" {
     bucket = "terraform-state-aws-bucket"
     lifecycle{
-        prevent_destroty = true 
+        prevent_destroy = true 
 
     }
     versioning {
