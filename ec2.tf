@@ -134,7 +134,7 @@ resource "aws_security_group" "loadbalancer_secuirtygroup"{
         from_port = 80
         to_port = 80 
         protocol = "tcp"
-        cide_blocks = ["0.0.0.0/0"]
+        cidr_blocks = ["0.0.0.0/0"]
   
     }
     #allow outbound traffic 
