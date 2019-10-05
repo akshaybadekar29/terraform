@@ -127,7 +127,7 @@ resource "aws_lb_listener" "lb_listner" {
 }
 
 resource "aws_security_group" "loadbalancer_secuirtygroup"{
-    name = Elb_SecurityGroup
+    name = "Elb_SecurityGroup"
 
     #allow inbound http traffic 
     ingress {
