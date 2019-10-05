@@ -108,7 +108,7 @@ resource "aws_lb" "web_loadbalancer" {
  name= "web_loadbalancer"
  load_balancer_type = "application"
  subnets = data.aws_subnet_ids.default.ids
- security_groups = [aws_security_group.loadbalancer_secuirtygroup.alb.id]
+ security_groups = [aws_security_group.loadbalancer_secuirtygroup.id]
 
 }
 
