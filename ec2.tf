@@ -174,7 +174,7 @@ resource "aws_lb_listner_rule" "lb_rule" {
     priority = 100
     condition {
         filed = "path-patteren"
-        values = [*]
+        values = [ "*" ]
 
     }
   
