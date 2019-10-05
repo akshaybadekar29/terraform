@@ -119,7 +119,7 @@ resource "aws_lb_listener" "lb_listner" {
     default_action {
         type = "fixed-response"
         fixed_response {
-            content_type = "text/plan"
+            content_type = "text/plain"
             message_body = "404:  page not found"
             status_code =  404
         }
