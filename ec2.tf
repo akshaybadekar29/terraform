@@ -184,3 +184,8 @@ resource "aws_lb_listener_rule" "lb_rule" {
     }
 
 }
+
+
+output "alb_dns_name"{
+  value = "aws_lb.web_loadbalancer.dns_name"
+}
