@@ -105,7 +105,7 @@ resource "aws_autoscaling_group" "web_server_autoscalling_group" {
 
 resource "aws_lb" "web_loadbalancer" {
 
- name= "web_loadbalancer"
+ name= "web-loadbalancer"
  load_balancer_type = "application"
  subnets = data.aws_subnet_ids.default.ids
  security_groups = [aws_security_group.loadbalancer_secuirtygroup.id]
