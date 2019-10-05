@@ -180,7 +180,7 @@ resource "aws_lb_listener_rule" "lb_rule" {
   
     action {
         type = "forword"
-        target_group_arns = aws_lb_target_group.asg_targetgroup.arn
+        target_group_arns = aws_lb_target_group.lb_rule.arn
     }
 
 }
